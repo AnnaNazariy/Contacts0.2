@@ -2,11 +2,11 @@ package edu.practise.domain.data;
 
 import java.util.List;
 
-public class BooksDataSource {
+public class MenusDataSource {
 
     private final JsonConverter jsonConverter;
 
-    public BooksDataSource(JsonConverter jsonConverter) {
+    public MenusDataSource(JsonConverter jsonConverter) {
         this.jsonConverter = jsonConverter;
     }
 
@@ -22,4 +22,10 @@ public class BooksDataSource {
         //write json from file
 
     }
+
+    public List<Menu> readMenus() {
+
+        return null;
+    }
 }
+
