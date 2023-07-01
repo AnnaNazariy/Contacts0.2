@@ -1,6 +1,5 @@
 package edu.practise.domain.data;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class BooksDataSource {
@@ -11,13 +10,13 @@ public class BooksDataSource {
         this.jsonConverter = jsonConverter;
     }
 
-    public List<Book> readBooks() {
+    public List<Menu> readBooks() {
         //read json from file
         //convert json string to list of Book;
         return jsonConverter.fromJson("");
     }
 
-    public void writeBooks(List<Book> books) {
+    public void writeBooks(List<Menu> books) {
         //convert list of Book to json
         String jsonBooks = jsonConverter.toJson(books);
         //write json from file

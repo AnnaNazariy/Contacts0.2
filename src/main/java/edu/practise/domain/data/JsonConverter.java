@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface JsonConverter {
 
-    String toJson(List<Book> books);
+    String toJson(List<Menu> books);
 
-    List<Book> fromJson(String books);
+    List<Menu> fromJson(String books);
 }

@@ -1,39 +1,39 @@
 package edu.practise.domain;
 
-import edu.practise.domain.data.Book;
+import edu.practise.domain.data.Menu;
 import edu.practise.domain.data.BooksDataSource;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class AppLibraryRepository implements LibraryRepository {
+public class AppRestaurantRepository implements RestaurantRepository {
 
     private final BooksDataSource booksDataSource;
 
-    private final List<Book> books;
+    private final List<Menu> books;
 
-    public AppLibraryRepository(BooksDataSource booksDataSource, List<Book> books) {
+    public AppRestaurantRepository(BooksDataSource booksDataSource, List<Menu> books) {
         this.booksDataSource = booksDataSource;
         this.books = books;
     }
 
     @Override
-    public void addBook(Book book) {
+    public void addBook(Menu book) {
         //add book
     }
 
     @Override
-    public void editBook(Book book) {
+    public void editBook(Menu book) {
         //edit book
     }
 
     @Override
-    public void deleteBook(Book book) {
+    public void deleteBook(Menu book) {
         //delete book
     }
 
     @Override
-    public List<Book> searchBook(String criteria) {
+    public List<Menu> searchBook(String criteria) {
         return new ArrayList<>();
     }
 
