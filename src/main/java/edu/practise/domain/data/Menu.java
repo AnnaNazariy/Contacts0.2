@@ -18,8 +18,12 @@ public class Menu {
         if (index >= 0 && index < menuItems.size()) {
             menuItems.remove(index);
         } else {
-            System.out.println("Неправильний номер страви!");
+            System.out.println("Invalid menu item index!");
         }
+    }
+
+    public List<MenuItem> getMenuItems() {
+        return menuItems;
     }
 
     public static class MenuItem {
@@ -40,4 +44,3 @@ public class Menu {
         }
     }
 }
-

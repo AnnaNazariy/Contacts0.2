@@ -9,5 +9,6 @@ public interface RestaurantRepository {
     void editMenu(Menu menu);
     void deleteMenu(Menu menu);
     List<Menu> searchMenu(String criteria);
+    List<Menu.MenuItem> getMenuItems();
     void saveChanges();
 }

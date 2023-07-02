@@ -13,11 +13,16 @@ public class Main {
     public static void main(String[] args) {
         Gson gson = new GsonBuilder().create();
         JsonConverter gsonConverter = new GsonConverter(gson);
-        BooksDataSource booksDataSource = new BooksDataSource(gsonConverter);
-        List<Menu> books = booksDataSource.readBooks();
-        RestaurantRepository libraryRepository = new AppRestaurantRepository(booksDataSource, books);
+        MenusDataSource menusDataSource = new MenusDataSource(gsonConverter);
+        List<Menu> menus = menusDataSource.readMenus();
+        RestaurantRepository restaurantRepository = new AppRestaurantRepository(menusDataSource, menus);
 
 
-
+        List<Menu.MenuItem> menuItems = restaurantRepository.getMenuItems();
+        for (Menu.MenuItem menuItem : menuItems) {
+            System.out.println("Назва: " + menuItem.getName());
+            System.out.println("Ціна: " + menuItem.getPrice());
+            System.out.println();
+        }
     }
 }

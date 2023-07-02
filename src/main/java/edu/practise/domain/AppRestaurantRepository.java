@@ -1,44 +1,52 @@
 package edu.practise.domain;
 
 import edu.practise.domain.data.Menu;
-import edu.practise.domain.data.BooksDataSource;
+import edu.practise.domain.data.MenusDataSource;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class AppRestaurantRepository implements RestaurantRepository {
 
-    private final BooksDataSource booksDataSource;
+    private final MenusDataSource menusDataSource;
+    private final List<Menu> menus;
 
-    private final List<Menu> books;
-
-    public AppRestaurantRepository(BooksDataSource booksDataSource, List<Menu> books) {
-        this.booksDataSource = booksDataSource;
-        this.books = books;
+    public AppRestaurantRepository(MenusDataSource menusDataSource, List<Menu> menus) {
+        this.menusDataSource = menusDataSource;
+        this.menus = menus;
     }
 
     @Override
-    public void addBook(Menu book) {
-        //add book
+    public void addMenu(Menu menu) {
+        // Додати меню
     }
 
     @Override
-    public void editBook(Menu book) {
-        //edit book
+    public void editMenu(Menu menu) {
+        // Редагувати меню
     }
 
     @Override
-    public void deleteBook(Menu book) {
-        //delete book
+    public void deleteMenu(Menu menu) {
+        // Видалити меню
     }
 
     @Override
-    public List<Menu> searchBook(String criteria) {
+    public List<Menu> searchMenu(String criteria) {
         return new ArrayList<>();
     }
 
     @Override
+    public List<Menu.MenuItem> getMenuItems() {
+        List<Menu.MenuItem> menuItems = new ArrayList<>();
+        for (Menu menu : menus) {
+            menuItems.addAll(menu.getMenuItems());
+        }
+        return menuItems;
+    }
+
+    @Override
     public void saveChanges() {
-        booksDataSource.writeBooks(books);
+        menusDataSource.writeMenus(menus);
     }
 }

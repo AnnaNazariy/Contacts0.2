@@ -10,22 +10,13 @@ public class MenusDataSource {
         this.jsonConverter = jsonConverter;
     }
 
-    public List<Menu> readBooks() {
-        //read json from file
-        //convert json string to list of Book;
-        return jsonConverter.fromJson("");
-    }
-
-    public void writeBooks(List<Menu> books) {
-        //convert list of Book to json
-        String jsonBooks = jsonConverter.toJson(books);
-        //write json from file
-
-    }
-
     public List<Menu> readMenus() {
+        String json = "";
+        return jsonConverter.fromJson(json);
+    }
 
-        return null;
+    public void writeMenus(List<Menu> menus) {
+        String jsonMenus = jsonConverter.toJson(menus);
+
     }
 }
-

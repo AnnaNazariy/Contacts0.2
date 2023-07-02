@@ -14,13 +14,18 @@ public class GsonConverter implements JsonConverter {
     }
 
     @Override
-    public String toJson(List<Menu> books) {
-        return gson.toJson(books);
+    public String toJson(List<Menu> menus) {
+        return gson.toJson(menus);
     }
 
     @Override
-    public List<Menu> fromJson(String books) {
-        TypeToken<List<Menu>> booksType = new TypeToken<>(){};
-        return gson.fromJson(books, booksType);
+    public List<Menu> fromJson(String json) {
+        TypeToken<List<Menu>> menuListType = new TypeToken<>() {};
+        return gson.fromJson(json, menuListType.getType());
+    }
+
+    @Override
+    public void saveJsonToFile(String jsonMenu, String filePath) {
+
     }
 }
