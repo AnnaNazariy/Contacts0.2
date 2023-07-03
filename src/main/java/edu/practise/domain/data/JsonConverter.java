@@ -3,8 +3,10 @@ package edu.practise.domain.data;
 import java.util.List;
 
 public interface JsonConverter {
-    String toJson(List<Menu> menus);
-    List<Menu> fromJson(String json);
 
-    void saveJsonToFile(String jsonMenu, String filePath);
+    String toJson(Object object);
+
+    <T> T fromJson(String json, Class<T> classOfT);
+
+    List<Menu> fromJson();
 }

@@ -12,7 +12,6 @@ public class CustomerMenu {
 
     public void displayMenu() {
         System.out.println("Ви увійшли в режим перегляду цін як клієнт.");
-        // Додатковий код для виведення інформації про меню клієнта
         List<Menu> menus = dataSource.readMenus();
         System.out.println("Меню ресторану:");
         for (Menu menu : menus) {

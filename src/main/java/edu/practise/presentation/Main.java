@@ -1,28 +1,30 @@
 package edu.practise.presentation;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import edu.practise.domain.AppRestaurantRepository;
-import edu.practise.domain.RestaurantRepository;
 import edu.practise.domain.data.*;
 
-import java.util.List;
+
+import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-        Gson gson = new GsonBuilder().create();
-        JsonConverter gsonConverter = new GsonConverter(gson);
-        MenusDataSource menusDataSource = new MenusDataSource(gsonConverter);
-        List<Menu> menus = menusDataSource.readMenus();
-        RestaurantRepository restaurantRepository = new AppRestaurantRepository(menusDataSource, menus);
+        String filePath = "C:\\Users\\user\\Desktop\\java\\practice-sample-main\\src\\main\\java\\edu\\practise\\domain\\data\\Menu.json";
+        GsonConverter gsonConverter = new GsonConverter("C:\\Users\\user\\Desktop\\java\\practice-sample-main\\src\\main\\java\\edu\\practise\\domain\\data\\Menu.json");
+        MenusDataSource dataSource = new MenusDataSource(gsonConverter, filePath);
 
 
-        List<Menu.MenuItem> menuItems = restaurantRepository.getMenuItems();
-        for (Menu.MenuItem menuItem : menuItems) {
-            System.out.println("Назва: " + menuItem.getName());
-            System.out.println("Ціна: " + menuItem.getPrice());
-            System.out.println();
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Виберіть свій статус (1 - Адміністратор, 2 - Клієнт):");
+        int status = scanner.nextInt();
+
+        if (status == 1) {
+            AdminMenu adminMenu = new AdminMenu(dataSource);
+            adminMenu.displayMenu();
+        } else if (status == 2) {
+            CustomerMenu customerMenu = new CustomerMenu(dataSource);
+            customerMenu.displayMenu();
+        } else {
+            System.out.println("Невірний статус. Будь ласка, виберіть 1 або 2.");
         }
     }
 }

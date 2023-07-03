@@ -1,46 +1,28 @@
 package edu.practise.domain.data;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Menu {
-    private List<MenuItem> menuItems;
 
-    public Menu() {
-        menuItems = new ArrayList<>();
+    private final String name;
+    private final double price;
+
+    public Menu(String name, double price) {
+        this.name = name;
+        this.price = price;
     }
 
-    public void addMenuItem(MenuItem menuItem) {
-        menuItems.add(menuItem);
+    public String getName() {
+        return name;
     }
 
-    public void deleteMenuItem(int index) {
-        if (index >= 0 && index < menuItems.size()) {
-            menuItems.remove(index);
-        } else {
-            System.out.println("Invalid menu item index!");
-        }
+    public double getPrice() {
+        return price;
     }
 
-    public List<MenuItem> getMenuItems() {
-        return menuItems;
-    }
-
-    public static class MenuItem {
-        private String name;
-        private double price;
-
-        public MenuItem(String name, double price) {
-            this.name = name;
-            this.price = price;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public double getPrice() {
-            return price;
-        }
+    @Override
+    public String toString() {
+        return "Menu{" +
+                "name='" + name + '\'' +
+                ", price=" + price +
+                '}';
     }
 }

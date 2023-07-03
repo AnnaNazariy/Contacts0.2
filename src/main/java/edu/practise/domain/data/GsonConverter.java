@@ -3,29 +3,46 @@ package edu.practise.domain.data;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
 
 public class GsonConverter implements JsonConverter {
 
-    private final Gson gson;
+    private Gson gson;
+    private String filePath;
 
-    public GsonConverter(Gson gson) {
-        this.gson = gson;
+    public GsonConverter(String filePath) {
+        gson = new Gson();
+        this.filePath = filePath;
     }
 
     @Override
-    public String toJson(List<Menu> menus) {
-        return gson.toJson(menus);
+    public String toJson(Object object) {
+        return gson.toJson(object);
     }
 
     @Override
-    public List<Menu> fromJson(String json) {
-        TypeToken<List<Menu>> menuListType = new TypeToken<>() {};
-        return gson.fromJson(json, menuListType.getType());
+    public <T> T fromJson(String json, Class<T> classOfT) {
+        return gson.fromJson(json, classOfT);
     }
 
     @Override
-    public void saveJsonToFile(String jsonMenu, String filePath) {
+    public List<Menu> fromJson() {
+        try (FileReader reader = new FileReader(filePath)) {
+            return gson.fromJson(reader, new TypeToken<List<Menu>>() {}.getType());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
+    public void writeMenus(List<Menu> menus) {
+        try (FileWriter writer = new FileWriter(filePath)) {
+            gson.toJson(menus, writer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
