@@ -15,7 +15,7 @@ public class CustomerMenu {
         List<Menu> menus = dataSource.readMenus();
         System.out.println("Меню ресторану:");
         for (Menu menu : menus) {
-            System.out.println(menu.getName());
+            System.out.println(menu.getName() + "v ");
         }
 
         Scanner scanner = new Scanner(System.in);
