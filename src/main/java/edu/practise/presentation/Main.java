@@ -1,7 +1,9 @@
 package edu.practise.presentation;
 
-import edu.practise.domain.data.*;
-
+import edu.practise.domain.data.AdminMenu;
+import edu.practise.domain.data.CustomerMenu;
+import edu.practise.domain.data.GsonConverter;
+import edu.practise.domain.data.MenusDataSource;
 
 import java.util.Scanner;
 

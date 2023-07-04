@@ -24,7 +24,7 @@ public class CustomerMenu {
 
         for (Menu menu : menus) {
             if (menu.getName().equals(dishName)) {
-                System.out.println("Ціна страви " + dishName + " - " + menu.getPrice());
+                System.out.println("Ціна страви " + dishName + " - " + menu.getPrice() + "₴");
                 return;
             }
         }

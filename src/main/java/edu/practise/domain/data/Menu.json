@@ -1,38 +1,38 @@
 [
       {
-        "name": "Eggs",
-        "price": 5.99
+        "name": "Чизкейк з полуницями",
+        "price": 280.00
       },
       {
-        "name": "Toast",
-        "price": 2.99
+        "name": "Гарбузовий крем-суп ",
+        "price": 150.00
       },
       {
-        "name": "Coffee",
-        "price": 1.99
+        "name": "Борщ з сметаною ",
+        "price": 180.00
       },
       {
-        "name": "Sandwich",
-        "price": 6.99
+        "name": "Лазанья",
+        "price": 300.00
       },
       {
-        "name": "Salad",
-        "price": 4.99
+        "name": "Томатний суп ",
+        "price":130.00
       },
       {
-        "name": "Soup",
-        "price": 3.99
+        "name": "Фруктовий салат",
+        "price": 80.00
       },
       {
-        "name": "Steak",
-        "price": 15.99
+        "name": "Стейк з яловичини",
+        "price": 350.00
       },
       {
-        "name": "Fish",
-        "price": 12.99
+        "name": "Паста карбонара",
+        "price": 170.00
       },
       {
-        "name": "Pasta",
-        "price": 10.99
+        "name": "Тірамісу",
+        "price": 75.00
       }
 ]
