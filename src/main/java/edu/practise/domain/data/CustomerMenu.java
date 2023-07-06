@@ -14,20 +14,35 @@ public class CustomerMenu {
         System.out.println("Ви увійшли в режим перегляду цін як клієнт.");
         List<Menu> menus = dataSource.readMenus();
         System.out.println("Меню ресторану:");
-        for (Menu menu : menus) {
-            System.out.println(menu.getName());
+        for (int i = 0; i < menus.size(); i++) {
+            Menu menu = menus.get(i);
+            System.out.println((i + 1) + ". " + menu.getName());
         }
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Введіть назву страви:");
-        String dishName = scanner.nextLine();
+        String choice;
 
-        for (Menu menu : menus) {
-            if (menu.getName().equals(dishName)) {
-                System.out.println("Ціна страви " + dishName + " - " + menu.getPrice() + "₴");
-                return;
+        do {
+            System.out.print("Введіть номер страви або 'exit' для виходу: ");
+            choice = scanner.nextLine();
+
+            if (choice.equalsIgnoreCase("exit")) {
+                System.out.println("Ви вийшли з меню.");
+                break;
             }
-        }
-        System.out.println("Страва з назвою " + dishName + " не знайдена.");
+
+            try {
+                int dishNumber = Integer.parseInt(choice);
+                if (dishNumber >= 1 && dishNumber <= menus.size()) {
+                    Menu selected = menus.get(dishNumber - 1);
+                    System.out.println("Обрана страва: " + selected.getName());
+                    System.out.println("Ціна страви: " + selected.getPrice() + "₴");
+                } else {
+                    System.out.println("Невірний номер страви. Спробуйте ще раз.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Невірний ввід. Спробуйте ще раз.");
+            }
+        } while (true);
     }
 }
